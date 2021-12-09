@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :article do
     title { 'Test Title' }
-    content { 'Test content' }
+    content { 'a' * 50 }
     slug { 'test slug' }
   end
 end
