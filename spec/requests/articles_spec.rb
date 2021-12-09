@@ -6,5 +6,23 @@ RSpec.describe ArticlesController do
       get '/articles'
       expect(response).to have_http_status(:ok)
     end
+
+    it 'returns proper JSON' do
+      article = create :article
+      body = JSON.parse(response.body)
+      get articles_index expect(body).to eq(
+        data: [
+          {
+            id: article.id,
+            type: 'articles',
+            attributes: {
+              title: article.title,
+              content: article.content,
+              slug: article.slug
+            }
+          }
+        ]
+      )
+    end
   end
 end
