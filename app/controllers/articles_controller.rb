@@ -1,6 +1,7 @@
-class ArticlesController < ApplicationController
+# frozen_string_literal: true
 
+class ArticlesController < ApplicationController
   def index
-    render json: {}, status: :ok
+    render json: Article.all, status: :ok
   end
 end
