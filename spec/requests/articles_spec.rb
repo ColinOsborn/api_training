@@ -49,7 +49,7 @@ RSpec.describe ArticlesController do
       )
     end
   end
-  
+
   describe '#show' do
     let(:article) { create :article }
 
@@ -64,7 +64,7 @@ RSpec.describe ArticlesController do
     it 'returns a proper JSON' do
       aggregate_failures do
         expect(json_data[:id]).to eq(article.id.to_s)
-        expect(json_data[:type]).to eq('article')
+        expect(json_data[:type]).to eq('articles')
         expect(json_data[:attributes]).to eq(
           title: article.title,
           content: article.content,
